@@ -1,0 +1,252 @@
+/* Modal Overlay Stili */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    /* Hafif koyu arka plan */
+    backdrop-filter: blur(5px);
+    /* Arka planı bulanıklaştır */
+    z-index: 9990;
+    /* Diğer elemanların üzerinde */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    /* İçerik taşarsa scroll ekle */
+    padding: 20px 0;
+    /* Üst ve alt boşluk */
+}
+
+/* Genel Modal İçerik Stili */
+.modal-content {
+    background-color: white;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 600px;
+    /* Maksimum genişlik */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    /* İçerik taşmasını engelle */
+    margin: auto;
+    /* Dikey ve yatay ortalama için */
+    animation: fadeIn 0.3s ease-out;
+    /* Giriş animasyonu */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
+.modal-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 28px;
+    color: white;
+    /* Beyaz çarpı */
+    cursor: pointer;
+    z-index: 10000;
+    /* Diğer modal elemanlarının üzerinde */
+    width: 35px;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.3);
+    /* Hafif transparan arka plan */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.modal-close-btn:hover {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+.modal-header {
+    background: linear-gradient(to right, #00796b, #43a047);
+    /* Yeşil gradient */
+    color: white;
+    padding: 25px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-header h1 {
+    font-size: 24px;
+    /* Başlık boyutu */
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+/* Header altındaki beyaz eğri */
+.modal-header::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: white;
+    border-radius: 50% 50% 0 0;
+}
+
+.modal-tabs {
+    display: flex;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-tab {
+    flex: 1;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 600;
+    color: #777;
+    transition: color 0.2s ease, border-bottom-color 0.2s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.modal-tab.active {
+    color: #00796b;
+    /* Ana yeşil renk */
+    border-bottom-color: #43a047;
+    /* Aktif sekme çizgisi */
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+/* Form Giriş Alanları (Modal İçin Özel) */
+.modal-input-group {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+.modal-input-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #43a047;
+    /* Yeşil ikon rengi */
+    font-size: 1.2rem;
+}
+
+.modal-input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    /* İkon için sol padding */
+    border: none;
+    border-radius: 50px;
+    /* Tam yuvarlak */
+    background-color: #f5f5f5;
+    color: #43a047;
+    /* Açık gri arka plan */
+    font-size: 16px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
+
+.modal-input:focus {
+    outline: none;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1), 0 0 0 2px rgba(0, 121, 107, 0.2);
+    /* Odaklanma efekti */
+}
+
+
+.modal-button {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 50px;
+    /* Tam yuvarlak */
+    background: linear-gradient(to right, #00796b, #43a047);
+    /* Yeşil gradient */
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 121, 107, 0.4);
+    /* Gölge */
+    margin-top: 10px;
+    text-transform: uppercase;
+    /* Büyük harf */
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal-button:hover {
+    opacity: 0.9;
+    box-shadow: 0 6px 20px rgba(0, 121, 107, 0.5);
+}
+
+.modal-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #00796b;
+    /* Ana yeşil renk */
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.modal-link:hover {
+    text-decoration: underline;
+}
+
+/* Kayıt türü seçimi */
+.register-options {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.register-options button {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.register-options span {
+    /* Emoji veya ikon */
+    margin-right: 8px;
+    font-size: 1.2rem;
+}
+
+/* Input Grid Layout (Kayıt Modalları için) */
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Mobil için tek sütun */
+    gap: 15px 20px;
+    /* Dikey ve yatay boşluk */
+    margin-bottom: 15px;
+}
+
+@media (min-width: 576px) {
+
+    /* Daha geniş ekranlar için iki sütun */
+    .modal-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}

@@ -1,0 +1,194 @@
+/* Tabs Styles (Değişiklik Yok) */
+.tabs {
+    margin-top: 2rem;
+}
+
+.tabs-list {
+    display: flex;
+    overflow-x: auto;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1.5rem;
+}
+
+.tab-btn {
+    padding: 0.75rem 1rem;
+    background: none;
+    border: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Carousel Styles (Değişiklik Yok) */
+.gallery-carousel {
+    position: relative;
+    margin: 2rem 0;
+}
+
+.carousel-container {
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    padding: 0 0.5rem;
+}
+
+@media (min-width: 768px) {
+    .carousel-slide {
+        min-width: 50%;
+    }
+}
+
+@media (min-width: 1024px) {
+    .carousel-slide {
+        min-width: 33.333%;
+    }
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid var(--border);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.prev-btn {
+    left: 0.5rem;
+}
+
+.next-btn {
+    right: 0.5rem;
+}
+
+/* Accordion Styles (Güncellendi) */
+.accordion {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+}
+
+.accordion-item {
+    border-bottom: 1px solid var(--border);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-button {
+    width: 100%;
+    text-align: left;
+    padding: 1rem;
+    background: none;
+    color: inherit;
+    /* Butonun varsayılan metin rengini alır veya kendi stilinizi ekleyebilirsiniz */
+    border: none;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: medium;
+}
+
+.accordion-button::after {
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 1000;
+    transition: transform 0.2s ease;
+}
+
+.accordion-button.active::after {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    display: none;
+    padding: 1rem;
+    margin: 1rem;
+    border-top: 1px solid var(--border);
+}
+
+.accordion-content.active {
+    display: block;
+}
+
+/* Contact Styles (Değişiklik Yok) */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-item {
+    display: flex;
+    gap: 1rem;
+}
+
+.contact-item i {
+    color: var(--primary);
+    font-size: 1.25rem;
+    margin-top: 0.25rem;
+}
+
+.contact-item h4 {
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.contact-item p {
+    color: var(--muted);
+    font-size: 0.875rem;
+    margin-bottom: 0;
+}
+
+/* About Styles (Değişiklik Yok) */
+.about-text {
+    margin-bottom: 2rem;
+}
+
+.about-text h3 {
+    margin-bottom: 1rem;
+}
+
+.about-text p {
+    color: var(--muted);
+    font-size: 0.875rem;
+}

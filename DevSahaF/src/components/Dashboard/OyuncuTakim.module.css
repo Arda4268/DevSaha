@@ -1,0 +1,285 @@
+/* src/components/Dashboard/OyuncuTakim.module.css */
+:root {
+    --sidebar-width: 280px;
+    --sidebar-gap: 20px;
+    --background: #f5f5f5;
+    --card-bg: #fff;
+    --text-primary: #333;
+    --text-secondary: #666;
+    --primary: #0e6b28;
+    --primary-light: rgba(14, 107, 40, 0.1);
+}
+
+.mainContent {
+    padding: 2rem;
+    background: var(--background);
+}
+
+.container {
+    margin-left: calc(var(--sidebar-width) + var(--sidebar-gap));
+    max-width: 1100px;
+    margin-right: auto;
+}
+
+/* Header */
+.teamHeader {
+    display: flex;
+    background: var(--card-bg);
+    border-radius: 0.75rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.logoContainer {
+    flex-shrink: 0;
+}
+
+.teamLogo {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.headerDetails {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.teamName {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.teamCity {
+    color: var(--text-secondary);
+    margin: 0.5rem 0;
+}
+
+/* Kaptan satırı */
+.teamCaptain {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--primary);
+    margin-top: 0.5rem;
+}
+
+/* Bölüm genel ayarları */
+.section {
+    margin-top: 2rem;
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+/* İstatistik kartları */
+.statsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.statCard {
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.statInfo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+}
+
+.statLabel {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.statValue {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.progressBar {
+    height: 6px;
+    background: lightgreen;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: var(--primary);
+    transition: width 0.4s ease;
+}
+
+/* Üye kartları */
+.membersGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.memberCard {
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    padding: 1rem;
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.memberCard:hover {
+    transform: translateY(-4px);
+}
+
+.memberAvatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.75rem;
+    border: 2px solid var(--primary);
+}
+
+.memberInfo h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0.5rem 0;
+}
+
+.memberInfo p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0.25rem 0;
+}
+
+/* Geçmiş Maçlar */
+.matchHistory {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+}
+
+.matchCard {
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.matchDate {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.matchTeams {
+    margin-bottom: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.matchResult {
+    font-weight: 600;
+    color: var(--primary);
+}
+
+/* Başarılar */
+.achievementsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.achievementCard {
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.achievementIcon {
+    font-size: 2rem;
+}
+
+.achievementIcon.gold {
+    color: gold;
+}
+
+.achievementIcon.silver {
+    color: silver;
+}
+
+.achievementIcon.bronze {
+    color: peru;
+}
+
+.achievementInfo h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+}
+
+.achievementInfo p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+.captainBadge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.pageTitle {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.teamLogoSmall {
+    width: 36px;
+    height: 36px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 1px 6px rgba(34, 139, 34, 0.08);
+    background: #fff;
+    margin: 0 5px;
+    border: 2px solid #e1eedd;
+    transition: transform 0.15s;
+    vertical-align: middle;
+}
+
+.matchTeams img.teamLogoSmall {
+    /* Logo ile takım adı arasındaki boşluğu ayarlar */
+    margin-right: 6px;
+    margin-left: 6px;
+}

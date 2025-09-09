@@ -1,0 +1,1283 @@
+/* Base Styles */
+@font-face {
+    font-family: "Segoe UI";
+    src: local("Segoe UI"), local("SegoeUI"),
+        url("https://static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-westeuropean/segoeui-regular.woff2") format("woff2");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Segoe UI";
+    src: local("Segoe UI Bold"), local("SegoeUI-Bold"),
+        url("https://static2.sharepointonline.com/files/fabric/assets/fonts/segoeui-westeuropean/segoeui-semibold.woff2") format("woff2");
+    font-weight: bold;
+    font-style: normal;
+}
+
+:root {
+    --primary: #0e6b28;
+    --primary-light: rgba(14, 107, 40, 0.1);
+    --primary-dark: #085020;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-light: #999999;
+    --background: #f5f5f5;
+    --card-bg: #ffffff;
+    --border-color: #e0e0e0;
+    --sidebar-width: 250px;
+    --sidebar-collapsed-width: 70px;
+    --blue-light: #e6f0ff;
+    --blue-dark: #0066cc;
+    --green-light: #e6f7ef;
+    --green-dark: #0e6b28;
+    --yellow-light: #fff8e6;
+    --yellow-dark: #cc9900;
+    --red-light: #ffe6e6;
+    --red-dark: #cc0000;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+    color: var(--text-primary);
+    background-color: var(--background);
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* Icons */
+.icon-home:before,
+.icon-user:before,
+.icon-calendar:before,
+.icon-trophy:before,
+.icon-menu:before,
+.icon-clock:before,
+.icon-map-pin:before {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    content: "";
+}
+
+.icon-home:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/%3E%3Cpolyline points='9 22 9 12 15 12 15 22'/%3E%3C/svg%3E");
+}
+
+.icon-user:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E");
+}
+
+.icon-calendar:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E");
+}
+
+.icon-trophy:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9H4.5a2.5 2.5 0 0 1 0-5H6'/%3E%3Cpath d='M18 9h1.5a2.5 2.5 0 0 0 0-5H18'/%3E%3Cpath d='M4 22h16'/%3E%3Cpath d='M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22'/%3E%3Cpath d='M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22'/%3E%3Cpath d='M18 2H6v7a6 6 0 0 0 12 0V2Z'/%3E%3C/svg%3E");
+}
+
+.icon-menu:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='4' y1='12' x2='20' y2='12'/%3E%3Cline x1='4' y1='6' x2='20' y2='6'/%3E%3Cline x1='4' y1='18' x2='20' y2='18'/%3E%3C/svg%3E");
+}
+
+.icon-clock:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E");
+}
+
+.icon-map-pin:before {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E");
+}
+
+/* Layout */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.app-container .main-content {
+    margin-left: var(--sidebar-width);
+}
+
+.sidebar.collapsed+.main-content {
+    margin-left: var(--sidebar-collapsed-width);
+}
+
+.main-content {
+    flex: 1;
+    position: relative;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.container.full-width {
+    max-width: none;
+}
+
+.page-header {
+    margin-bottom: 24px;
+}
+
+.page-header h1 {
+    color: var(--primary);
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: var(--text-secondary);
+}
+
+/* Sidebar */
+.sidebar {
+    width: var(--sidebar-width);
+    background-color: var(--card-bg);
+    border-right: 1px solid var(--border-color);
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    transition: transform 0.3s ease, width 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar.collapsed {
+    width: var(--sidebar-collapsed-width);
+}
+
+.sidebar-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-circle {
+    width: 32px;
+    height: 32px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.sidebar-header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.sidebar-toggle-mobile {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--text-primary);
+}
+
+.sidebar-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px 0;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* Sidebar menü öğelerinin stilini değiştirme */
+.sidebar-menu-item a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: #000000;
+    /* Yazı rengi siyah */
+    transition: all 0.2s ease;
+    border-radius: 4px;
+    margin: 0 8px;
+}
+
+.sidebar-menu-item a:hover {
+    background-color: rgba(14, 107, 40, 0.1);
+    /* Açık yeşil arka plan */
+    color: var(--text-primary);
+    /* Yazı rengi değişmez */
+}
+
+.sidebar-menu-item.active a {
+    background-color: var(--primary);
+    /* Yeşil arka plan */
+    color: white;
+    /* Yazı rengi beyaz */
+    font-weight: 500;
+}
+
+.sidebar-menu-item span {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar.collapsed .sidebar-logo h1,
+.sidebar.collapsed .sidebar-menu-item span:not(:first-child) {
+    display: none;
+}
+
+.sidebar-toggle-desktop {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 90;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+/* Cards */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+
+.card-header {
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-header h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.card-header h3.with-icon {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.card-header h3.with-icon span:first-child {
+    color: var(--primary);
+}
+
+.card-header h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.inner-card {
+    background-color: var(--background);
+    margin-bottom: 0;
+}
+
+.inner-card .card-header {
+    padding: 12px 16px;
+}
+
+.inner-card .card-content {
+    padding: 12px 16px;
+}
+
+/* Card Grid */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.card-grid .card {
+    margin-bottom: 0;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-grid .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-blue {
+    background-color: var(--blue-light);
+    color: var(--blue-dark);
+}
+
+.bg-green {
+    background-color: var(--green-light);
+    color: var(--green-dark);
+}
+
+.bg-yellow {
+    background-color: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+/* Stats */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.stat-box {
+    background-color: var(--green-light);
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.stat-change {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 4px;
+}
+
+/* Profile */
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+}
+
+.profile-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-image {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.profile-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.profile-name {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 4px;
+}
+
+.profile-date {
+    font-size: 14px;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.profile-details {
+    width: 100%;
+    margin-top: 24px;
+}
+
+.profile-detail {
+    margin-bottom: 16px;
+}
+
+.detail-label {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 4px;
+}
+
+.detail-value {
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+/* Progress Bars */
+.progress-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.progress-item {
+    width: 100%;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.progress-label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.progress-value {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary);
+}
+
+.progress-bar {
+    height: 8px;
+    background-color: var(--border-color);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--primary);
+    border-radius: 4px;
+}
+
+/* Tabs */
+.tabs {
+    width: 100%;
+}
+
+.tab-list {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.tab-button {
+    padding: 12px 20px;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+    color: var(--primary);
+}
+
+.tab-button.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Randevular */
+.grid-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.grid-col-2 {
+    grid-column: span 2;
+}
+
+.grid-col-1 {
+    grid-column: span 1;
+}
+
+.doluluk-ozet {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.doluluk-item {
+    text-align: center;
+}
+
+.doluluk-label {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.doluluk-value {
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primary);
+}
+
+.saatlik-doluluk {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.saat-slot {
+    text-align: center;
+}
+
+.saat-label {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 4px;
+}
+
+.saat-doluluk {
+    height: 40px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.bos {
+    background-color: #f0f0f0;
+    color: var(--text-light);
+}
+
+.az-dolu {
+    background-color: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+.orta-dolu {
+    background-color: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+.tam-dolu {
+    background-color: var(--red-light);
+    color: var(--red-dark);
+}
+
+.saha-durum-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.saha-durum {
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.saha-durum.musait {
+    background-color: var(--green-light);
+}
+
+.saha-durum.dolu {
+    background-color: var(--red-light);
+}
+
+.saha-durum.bakim {
+    background-color: var(--yellow-light);
+}
+
+.saha-isim {
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.musait .saha-isim {
+    color: var(--green-dark);
+}
+
+.dolu .saha-isim {
+    color: var(--red-dark);
+}
+
+.bakim .saha-isim {
+    color: var(--yellow-dark);
+}
+
+.saha-detay {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    margin-top: 4px;
+}
+
+.detay-label {
+    color: var(--text-secondary);
+}
+
+.musait .detay-value {
+    color: var(--green-dark);
+}
+
+.dolu .detay-value {
+    color: var(--red-dark);
+}
+
+.bakim .detay-value {
+    color: var(--yellow-dark);
+}
+
+.randevu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.randevu-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+}
+
+.randevu-takim {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.randevu-detaylar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.randevu-detay {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.randevu-durum {
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.onaylandi {
+    background-color: var(--green-light);
+    color: var(--green-dark);
+}
+
+.beklemede {
+    background-color: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+.tamamlandi {
+    background-color: var(--blue-light);
+    color: var(--blue-dark);
+}
+
+.iptal {
+    background-color: var(--red-light);
+    color: var(--red-dark);
+}
+
+/* Lig Tablosu */
+.table-container {
+    overflow-x: auto;
+}
+
+.data-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.data-table th {
+    text-align: left;
+    padding: 12px 8px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table td {
+    padding: 12px 8px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.data-table tr:hover {
+    background-color: var(--background);
+}
+
+.sira-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    color: white;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.takim-isim,
+.halısaha-isim {
+    font-weight: 500;
+}
+
+.puan {
+    font-weight: 600;
+}
+
+.form-badges {
+    display: flex;
+    gap: 4px;
+}
+
+.form-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.galibiyet {
+    background-color: var(--green-light);
+    color: var(--green-dark);
+}
+
+.beraberlik {
+    background-color: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+.maglubiyet {
+    background-color: var(--red-light);
+    color: var(--red-dark);
+}
+
+.form-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+}
+
+.form-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.form-legend-text {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.doluluk-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.yuksek {
+    background-color: var(--green-light);
+    color: var(--green-dark);
+}
+
+.orta {
+    background-color: var(--yellow-light);
+    color: var(--yellow-dark);
+}
+
+.dusuk {
+    background-color: var(--red-light);
+    color: var(--red-dark);
+}
+
+/* Utilities */
+.mt-small {
+    margin-top: 8px;
+}
+
+.mt-medium {
+    margin-top: 16px;
+}
+
+.mt-large {
+    margin-top: 24px;
+}
+
+.mb-small {
+    margin-bottom: 8px;
+}
+
+.mb-medium {
+    margin-bottom: 16px;
+}
+
+.mb-large {
+    margin-bottom: 24px;
+}
+
+/* Haberler ve Etkinlikler için stil ekleme */
+.haber-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.haber-item {
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.haber-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.haber-tarih {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.haber-baslik {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.haber-ozet {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.haber-link {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--primary);
+    text-decoration: none;
+}
+
+.haber-link:hover {
+    text-decoration: underline;
+}
+
+.etkinlik-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.etkinlik-item {
+    display: flex;
+    gap: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.etkinlik-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.etkinlik-tarih {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 60px;
+    height: 60px;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.etkinlik-tarih .gun {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.etkinlik-tarih .ay {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.etkinlik-detay {
+    flex: 1;
+}
+
+.etkinlik-baslik {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+}
+
+.etkinlik-aciklama {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.etkinlik-bilgi {
+    display: flex;
+    gap: 16px;
+    font-size: 12px;
+    color: var(--text-light);
+}
+
+.etkinlik-saat,
+.etkinlik-yer {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.etkinlik-saat:before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23999999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.etkinlik-yer:before {
+    content: "";
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23999999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@media (max-width: 576px) {
+    .etkinlik-item {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .etkinlik-tarih {
+        align-self: flex-start;
+    }
+}
+
+/* -------------------------------
+   İSTATİSTİK EKLEME MODAL STİLLERİ
+---------------------------------*/
+
+/* Modal içeriğinin genişliği ve padding */
+.stats-modal {
+    width: 480px;
+    max-width: 90%;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* Başlık kısmı */
+.stats-modal .modal-header {
+    padding: 16px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Body padding */
+.stats-modal .modal-body {
+    padding: 16px;
+}
+
+/* Takım seçim butonları */
+.team-select {
+
+    display: flex;
+    gap: 8px;
+    margin: 16px 0;
+}
+
+.team-select .btn-secondary,
+.team-select .btn-outline {
+    flex: 1;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+/* Oyuncu listeleme satırları */
+.oyuncu-list .oyuncu-form-row {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.oyuncu-list .player-input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* + Oyuncu Ekle butonu */
+.add-player-btn {
+    display: inline-block;
+    margin-top: 8px;
+    font-size: 14px;
+}
+
+/* Modal altındaki aksiyon butonları */
+.stats-modal .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Geçmiş randevularda ‘istatistik girildi’ durumu */
+.randevu-durum.istatistikGirildi {
+    background-color: var(--blue-light);
+    color: var(--blue-dark);
+    font-weight: 500;
+}
+
+/* Durum pill’inin genel stili */
+.randevu-durum {
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+/* Player input ve Add Player butonunu küçült ve açık yeşil arka plan */
+.player-input {
+    width: 60px;
+    padding: 2px 4px;
+    font-size: 0.875rem;
+    color: var(--primary);
+    background-color: var(--green-light);
+    border: 1px solid var(--green-dark);
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.add-player-btn {
+    padding: 4px 8px;
+    font-size: 0.875rem;
+    background-color: var(--green-light);
+    border: 1px solid var(--green-dark);
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.add-player-btn:hover {
+    background-color: var(--green-dark);
+    color: #fff;
+}
+
+/* OyuncuBase.module.css veya Halisaha.css’in en altına ekleyin */
+
+:root {
+    /* Mevcut sabitleri bozmak istemezseniz bunları kendi dosyanıza taşıyın */
+    --sidebar-width: 280px;
+    --sidebar-gap: 200px;
+    /* İstediğiniz boşluğu buradan ayarlayın */
+}
+
+@media (min-width: 1024px) {
+    .main-content {
+        /* Eski: padding-left: 280px; */
+        padding-left: calc(var(--sidebar-width) + var(--sidebar-gap));
+    }
+}
+
+/* ---------- Scoreboard Card (Modal içindeki skorlama bölümü) ---------- */
+
+/* ---------- Skor Giriş Container’ı ---------- */
+.score-inputs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    gap: 2rem;
+}
+
+/* ---------- Her Takım Skor Alanı ---------- */
+.score-field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.score-field label {
+    margin-bottom: 0.4rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* ---------- Skor Input’ları ---------- */
+.score-inputs input[type="number"] {
+    color: var(--primary);
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+    text-align: center;
+    border: 2px solid var(--primary);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    background: #fafafa;
+}
+
+.score-inputs input[type="number"]::placeholder {
+    color: #ccc;
+}
+
+/* Focus State */
+.score-inputs input[type="number"]:focus {
+    outline: none;
+    border-color: var(--primary-dark);
+    box-shadow: 0 0 6px rgba(14, 107, 40, 0.3);
+}
+
+/* ---------- Hata Mesajları ---------- */
+.error-message {
+    color: #e63946;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* ---------- Modal İçindeki Butonlar ---------- */
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.modal-actions .btn-primary {
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    color: #fff;
+    border: none;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.modal-actions .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.modal-actions .btn-secondary,
+.istatistik-ekle-btn.btn-outline {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.modal-actions .btn-secondary:hover,
+.istatistik-ekle-btn.btn-outline:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+/* ---------- Responsive Düzenleme ---------- */
+@media (max-width: 600px) {
+    .score-inputs {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}

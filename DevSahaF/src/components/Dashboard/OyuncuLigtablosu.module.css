@@ -1,0 +1,182 @@
+:root {
+    --sidebar-width: 280px;
+    --sidebar-gap: 20px;
+
+    --primary: #0e6b28;
+    --primary-dark: #0a5720;
+    --primary-light: #12802f;
+    --bg: #f8f8f8;
+    --card: #ffffff;
+    --border: #e0e0e0;
+    --text: #333333;
+    --muted: #666666;
+}
+
+/* Container */
+.container {
+    margin-left: 0;
+    padding: 2rem 1rem;
+    background: var(--bg);
+    min-height: 100vh;
+}
+
+@media (min-width: 1024px) {
+    .container {
+        margin-left: calc(var(--sidebar-width) + var(--sidebar-gap));
+    }
+}
+
+/* Tabs */
+.tabContainer {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.tabButton {
+    flex: 1 1 180px;
+    max-width: 220px;
+    padding: 0.75rem 1rem;
+    background: transparent;
+    border: 2px solid var(--primary);
+    border-radius: 0.5rem;
+    font-weight: 600;
+    color: var(--primary);
+    text-align: center;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.tabButton:hover {
+    background: var(--primary-light);
+    color: #fff;
+    border-color: var(--primary-light);
+}
+
+.tabButton.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary-dark);
+}
+
+/* Cards grid: tek sütun */
+.cardsContainer {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr;
+    margin-top: 1rem;
+}
+
+/* Card */
+.card {
+    display: flex;
+    align-items: center;
+    background: var(--card);
+    border-left: 4px solid var(--primary);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(14, 107, 40, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(14, 107, 40, 0.2);
+}
+
+/* Avatar / Logo / Field image */
+.avatar {
+    flex-shrink: 0;
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 1rem;
+}
+
+/* Info panel */
+.cardInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-right: 1rem;
+}
+
+/* Header row with title + rank badge */
+.cardHeaderRow {
+    display: flex;
+    align-items: center;
+}
+
+.cardTitle {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text);
+}
+
+.rankBadge {
+    margin-left: auto;
+    background: var(--primary-dark);
+    color: #fff;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.9rem;
+}
+
+/* Meta line */
+.meta {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+}
+
+/* Stats badges row */
+.cardBody {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+}
+
+.statGreen {
+    background: var(--primary-light);
+    color: #fff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+/* Şehir filtresi */
+.filterGroup {
+    margin-bottom: 1rem;
+    text-align: right;
+}
+
+.filterGroup label {
+    margin-right: 0.5rem;
+    font-weight: 600;
+}
+
+.citySelect {
+    padding: 0.4rem 0.6rem;
+    border: 1px solid var(--primary);
+    border-radius: 0.25rem;
+    background: #fff;
+    color: var(--text);
+}
+
+.pageTitle {
+    font-size: 2rem;
+    color: var(--primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,901 @@
+/* src/components/Dashboard/OyuncuBase.module.css */
+
+/* =====================================================
+   :root – Tema Değişkenleri
+   ===================================================== */
+:root {
+    --sidebar-width: 280px;
+    --sidebar-gap: 20px;
+
+    --primary: #0e6b28;
+    --primary-light: #12802f;
+    --primary-dark: #0a5720;
+    --background: #ffffff;
+    --foreground: #333333;
+    --card-bg: #f8f8f8;
+    --border-color: #e0e0e0;
+    --blue-light: #e6f0ff;
+    --green-light: #e6fff0;
+    --yellow-light: #fffde6;
+    --purple-light: #f0e6ff;
+    --red-light: #ffe6e6;
+    --win-color: #4caf50;
+    --loss-color: #f44336;
+    --draw-color: #ff9800;
+    --gold-color: #ffc107;
+    --silver-color: #9e9e9e;
+    --bronze-color: #cd7f32;
+    --kaleci-color: #2196f3;
+    --defans-color: #4caf50;
+    --orta-saha-color: #ff9800;
+    --forvet-color: #f44336;
+}
+
+/* =====================================================
+   Global Reset & Temel
+   ===================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--foreground);
+    background: var(--background);
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+/* =====================================================
+   Sidebar
+   ===================================================== */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    height: 100vh;
+    background: var(--background);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+.sidebar.open {
+    transform: translateX(0);
+}
+
+/* Overlay */
+.sidebarOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 900;
+}
+
+.sidebarOverlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Toggle (Hamburger) */
+.sidebarToggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 1100;
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media (min-width: 1024px) {
+    .sidebarToggle {
+        display: none;
+    }
+}
+
+/* =====================================================
+   Main Content
+   ===================================================== */
+.mainContent {
+    /* eskiden: margin-left / padding-left ile kaydırma vardı */
+    margin-left: 0 !important;
+    padding: 2rem 1.5rem;
+    /* istediğiniz iç boşluk */
+}
+
+@media (min-width: 1024px) {
+    .mainContent {
+        margin-left: calc(var(--sidebar-width) + var(--sidebar-gap));
+    }
+}
+
+/* =====================================================
+   Container & Layout
+   ===================================================== */
+.container {
+    /* sidebar-width + gap */
+    margin-left: calc(var(--sidebar-width) + var(--sidebar-gap));
+    /* sağ otomatik */
+    margin-right: auto;
+}
+
+.section {
+    margin-bottom: 2rem;
+}
+
+.mb4 {
+    margin-bottom: 1rem;
+}
+
+/* =====================================================
+   Typography
+   ===================================================== */
+.pageTitle {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    color: var(--primary);
+}
+
+.sectionTitle {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* =====================================================
+   Cards
+   ===================================================== */
+.card {
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1rem;
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cardHeader {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cardTitle {
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.cardDate {
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.cardContent {
+    padding: 1rem 1.5rem;
+}
+
+/* =====================================================
+   Quick Access Grid
+   ===================================================== */
+
+
+.quickAccessGrid {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+@media (min-width: 640px) {
+    .quickAccessGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .quickAccessGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.quickAccessCard {
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.quickAccessCard:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.quickAccessCard p {
+    color: #000;
+}
+
+.quickAccessCard h3 {
+    color: #000;
+}
+
+.quickAccessCard a {
+    color: #000;
+}
+
+._quickAccessCard_1mjro_44 {
+    color: #000;
+}
+
+.bgBlue {
+    background: var(--blue-light);
+    border-left: 4px solid #31ce56;
+}
+
+.bgGreen {
+    background: var(--green-light);
+    border-left: 4px solid var(--primary);
+}
+
+.bgYellow {
+    background: var(--yellow-light);
+    border-left: 4px solid #d69e2e;
+}
+
+.bgPurple {
+    background: var(--purple-light);
+    border-left: 4px solid #805ad5;
+}
+
+.bgRed {
+    background: var(--red-light);
+    border-left: 4px solid #e53e3e;
+}
+
+/* =====================================================
+   Section Header & Buttons
+   ===================================================== */
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.btnOutline {
+    padding: 0.5rem 1rem;
+    background: transparent;
+    border: 1px solid var(--primary);
+    color: var(--primary);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.btnOutline:hover {
+    background: var(--primary);
+    color: #fff;
+}
+
+.btnPrimary {
+    padding: 0.5rem 1rem;
+    background: var(--primary);
+    border: 1px solid var(--primary);
+    color: #fff;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btnPrimary:hover {
+    background: var(--primary-dark);
+}
+
+.btnSm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.75rem;
+}
+
+.btnDanger {
+    border-color: var(--loss-color);
+    color: var(--loss-color);
+}
+
+.btnDanger:hover {
+    background: var(--loss-color);
+    color: #fff;
+}
+
+.btnBlock {
+    display: block;
+    width: 100%;
+}
+
+/* =====================================================
+   Page Header
+   ===================================================== */
+.pageHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+/* =====================================================
+   Filters Section
+   ===================================================== */
+.filtersSection {
+    background: var(--card-bg);
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.filtersContainer {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+@media(min-width:640px) {
+    .filtersContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width:1024px) {
+    .filtersContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.filterGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.searchContainer {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.searchInput {
+    position: relative;
+    flex: 1;
+}
+
+.searchInput i {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+}
+
+/* =====================================================
+   Players Grid & Cards
+   ===================================================== */
+.playersGrid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    grid-template-columns: repeat(1, 1fr);
+}
+
+@media(min-width:640px) {
+    .playersGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width:1024px) {
+    .playersGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.playerCard {
+    background: #fff;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.playerCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.playerHeader {
+    position: relative;
+    padding: 1.5rem;
+    background: var(--primary);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+}
+
+.playerAvatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    overflow: hidden;
+    background: #fff;
+}
+
+.playerAvatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.playerPrice {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+
+.priceTag {
+    font-size: 1.125rem;
+}
+
+.pricePeriod {
+    font-size: 0.75rem;
+    opacity: 0.8;
+}
+
+.playerBody {
+    padding: 1.5rem;
+    flex: 1;
+}
+
+.playerName {
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.playerPosition {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.positionBadge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.positionBadge.kaleci {
+    background: rgba(33, 150, 243, 0.2);
+    color: var(--kaleci-color);
+}
+
+.positionBadge.defans {
+    background: rgba(76, 175, 80, 0.2);
+    color: var(--defans-color);
+}
+
+.positionBadge.ortaSaha {
+    background: rgba(255, 152, 0, 0.2);
+    color: var(--orta-saha-color);
+}
+
+.positionBadge.forvet {
+    background: rgba(244, 67, 54, 0.2);
+    color: var(--forvet-color);
+}
+
+.playerInfo {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.infoItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.playerStats {
+    margin-bottom: 1rem;
+}
+
+.statItem {
+    margin-bottom: 0.5rem;
+}
+
+.statLabel {
+    display: block;
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 0.25rem;
+}
+
+.statBar {
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.statFill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 3px;
+}
+
+.playerRating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.starRating {
+    color: var(--gold-color);
+    font-size: 0.875rem;
+}
+
+.ratingCount {
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.playerBio {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 1rem;
+}
+
+.playerFooter {
+    padding: 1rem 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.progress-bar {
+    width: 100%;
+    height: 0.5rem;
+    background: lightgreen;
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: lightgreen;
+    transition: width 0.5s ease;
+}
+
+/* =====================================================
+   Pagination
+   ===================================================== */
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+}
+
+.paginationBtn {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    background: #fff;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.paginationBtn:hover:not(:disabled) {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.paginationBtn.active {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+}
+
+.paginationBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* =====================================================
+   Modal (ortak)
+   ===================================================== */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    overflow-y: auto;
+}
+
+.modal.show {
+    display: block;
+}
+
+.modalContent {
+    background: #fff;
+    border-radius: 0.5rem;
+    width: 90%;
+    max-width: 700px;
+    margin: 2rem auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-height: calc(100vh - 4rem);
+    display: flex;
+    flex-direction: column;
+}
+
+.modalHeader {
+    padding: 1.25rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.closeModal {
+    background: none;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #666;
+}
+
+.modalBody {
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+/* =====================================================
+   Form Elements
+   ===================================================== */
+.formGroup {
+    margin-bottom: 1.25rem;
+}
+
+.formGroup label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.formControl {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid var(--border-color);
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    transition: border-color 0.2s;
+}
+
+.formControl:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.formRow {
+    display: flex;
+    gap: 1rem;
+}
+
+.fileUpload {
+    position: relative;
+}
+
+.fileInput {
+    position: absolute;
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    z-index: -1;
+}
+
+.fileLabel {
+    display: inline-block;
+    padding: 0.625rem 1rem;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    transition: background 0.2s;
+}
+
+.fileLabel:hover {
+    background: var(--primary-dark);
+}
+
+.fileName {
+    margin-left: 0.75rem;
+    font-size: 0.875rem;
+    color: #666;
+}
+
+.formCheck {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.formCheckInput {
+    width: 1rem;
+    height: 1rem;
+}
+
+.formCheckLabel {
+    font-size: 0.875rem;
+}
+
+.textMuted {
+    color: #666;
+    font-size: 0.875rem;
+}
+
+/* =====================================================
+   Step Indicators & Navigation
+   ===================================================== */
+.stepIndicators {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.stepIndicators::before {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--border-color);
+    z-index: 1;
+}
+
+.step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+}
+
+.stepNumber {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #fff;
+    border: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s;
+}
+
+.step.active .stepNumber,
+.step.completed .stepNumber {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: #fff;
+}
+
+.stepLabel {
+    font-size: 0.875rem;
+    color: #666;
+    text-align: center;
+}
+
+.step.active .stepLabel {
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.stepContent {
+    display: none;
+}
+
+.stepContent.active {
+    display: block;
+}
+
+.stepNavigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* =====================================================
+   --- İhtiyaç halinde diğer sayfa-spesifik stiller ---
+   Özellikle Lig Tablosu, Profil, Randevular, Takım…
+   hepsini buraya modüle taşıyabilirsiniz.
+   ===================================================== */
+
+/* ... */
+/* src/components/Dashboard/OyuncuTakim.module.css */
+
+/* Form içindeki tüm inputlar için güçlü stil */
+.createForm input[type="text"] {
+    width: 100% !important;
+    padding: 0.75rem 1rem !important;
+    margin: 0.5rem 0 !important;
+    border: 2px solid var(--primary-light) !important;
+    border-radius: 0.75rem !important;
+    background-color: #fff !important;
+    font-size: 1rem !important;
+    color: var(--text-primary) !important;
+    outline: none !important;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+/* Odaklandığında (focus) */
+.createForm input[type="text"]:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(14, 107, 40, 0.2) !important;
+}
+
+/* Placeholder rengi */
+.createForm input[type="text"]::placeholder {
+    color: var(--text-secondary) !important;
+}

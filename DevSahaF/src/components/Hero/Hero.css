@@ -1,0 +1,115 @@
+.hero {
+    padding: 3rem 0;
+    background: linear-gradient(to bottom, rgba(14, 107, 40, 0.1), var(--background));
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.hero-text h1 {
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.hero-text p {
+    color: var(--muted);
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.hero-image {
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    border-radius: var(--radius);
+    max-width: 100%;
+    height: auto;
+}
+
+@media (min-width: 400px) {
+    .hero-buttons {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 768px) {
+    .hero {
+        padding: 25px;
+    }
+
+    .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-text p {
+        font-size: 1.125rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .hero-content {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .hero-text {
+        flex: 1;
+    }
+
+    .hero-image {
+        flex: 1;
+        order: 2;
+    }
+}
+
+.search-box {
+    position: relative;
+    width: 90%;
+    /* Daha geniş */
+    max-width: 800px;
+    /* Maksimum eni artırdık */
+    margin: 0 auto;
+}
+
+.search-box input {
+    background-color: white;
+    color: green;
+    width: 100%;
+    padding: 18px 60px 18px 25px;
+    /* Daha geniş padding */
+    font-size: 20px;
+    /* Yazı büyüklüğü */
+    border: none;
+    border-radius: 50px;
+    /* Daha yuvarlak köşeler */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-box .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 26px;
+    color: #666;
+    cursor: pointer;
+}

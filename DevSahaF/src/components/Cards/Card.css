@@ -1,0 +1,239 @@
+/* Player Card Styles */
+.player-card .card-header {
+    padding: 1rem 1rem 0.5rem;
+}
+
+.player-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem 5.75rem;
+}
+
+.player-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.player-info p {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+.player-stats {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.rating i {
+    color: #f59e0b;
+    font-size: 0.875rem;
+}
+
+.badges {
+    display: flex;
+    gap: 0.5rem;
+}
+
+/* Team Card Styles */
+.team-card .card-header {
+    padding: 1rem 1rem 0.5rem;
+}
+
+.team-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.team-logo {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: rgba(14, 107, 40, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.team-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.team-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.75rem;
+    color: var(--muted);
+}
+
+.team-rating i {
+    color: #f59e0b;
+    font-size: 0.75rem;
+}
+
+.team-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-top: 0.25rem;
+}
+
+/* Field Card Styles */
+.field-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.field-image {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.field-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.field-rating {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: var(--primary);
+    color: white;
+    border-radius: 9999px;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.field-card .card-header {
+    padding: 1rem 1rem 0.5rem;
+}
+
+.field-card .card-header h3 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.field-card .card-header p {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.field-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.field-price {
+    font-weight: 500;
+    color: var(--primary);
+}
+
+/* Gallery Card Styles */
+.gallery-card {
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Stat Card Styles */
+.stat-card {
+    background-color: var(--card);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+
+
+.stat-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.stat-header h4 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+.stat-header i {
+    color: var(--primary);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary);
+    margin-bottom: 0.25rem;
+}
+
+.stat-content p {
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 0;
+
+}
+
+/* Info Card Styles */
+.info-card {
+    height: 100%;
+}
+
+.info-card .card-header {
+    padding: 1rem;
+}
+
+.info-card .card-header h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0;
+}

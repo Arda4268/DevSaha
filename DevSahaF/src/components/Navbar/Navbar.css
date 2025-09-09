@@ -1,0 +1,141 @@
+/* Navbar.css */
+
+.navbar {
+    width: 100%;
+    background-color: white;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .container {
+    width: 1500px;
+    max-width: 1500px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+.navbar-logo a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-right: auto;
+}
+
+.logo-img {
+    width: 150px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 2.20rem;
+    color: var(--primary);
+    display: none;
+}
+
+.navbar-menu {
+    display: none;
+}
+
+.navbar-link {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--foreground);
+    transition: color 0.2s ease;
+}
+
+.navbar-link:hover {
+    color: var(--primary);
+}
+
+.navbar-auth {
+    display: none;
+}
+
+.mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background-color: transparent;
+    cursor: pointer;
+}
+
+/* -------------------------------------- */
+/* 1) Kapalıyken tıklamayı geçsin          */
+/* 2) React’in open class’ına göre açsın  */
+/* 3) Z-index’i navbar’ın altında kalsın  */
+/* -------------------------------------- */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 4rem;
+    right: 0;
+    width: 100%;
+    max-width: 300px;
+    background-color: white;
+    border-left: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 99;
+    pointer-events: none;
+}
+
+.mobile-menu.open {
+    display: block;
+    pointer-events: auto;
+}
+
+.mobile-link {
+    display: block;
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--foreground);
+    border-bottom: 1px solid var(--border);
+}
+
+.mobile-link:last-child {
+    border-bottom: none;
+}
+
+.mobile-auth {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+@media (min-width: 640px) {
+    .logo-text {
+        display: inline-block;
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-menu {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+    }
+
+    .navbar-auth {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .mobile-menu-btn {
+        display: none;
+    }
+}
