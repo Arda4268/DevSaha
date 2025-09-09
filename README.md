@@ -79,5 +79,3 @@ Projeniz iki ana klasörden oluşur:
 ## Katkıda Bulunma
 Projeye katkıda bulunmak isterseniz, lütfen bir pull request gönderin veya bir issue açın.
 
-## Lisans
-Bu proje, MIT Lisansı altında yayımlanmıştır. Daha fazla bilgi için `LICENSE` dosyasına bakınız.
